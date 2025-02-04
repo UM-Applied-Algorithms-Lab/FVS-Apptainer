@@ -1,2 +1,2 @@
 # FVS-Apptainer
-Find Viral Stains inside of an apptainer container
+Find Viral Strains inside of an apptainer container

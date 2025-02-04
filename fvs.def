@@ -1,0 +1,30 @@
+Bootstrap: docker
+From: ubuntu:latest
+
+%post
+    # Update package lists and install required packages
+    apt-get update && apt-get install -y \
+        git \
+        curl \
+        build-essential \
+        libssl-dev \
+        pkg-config \
+        ca-certificates \
+        cmake \
+        libcurl4-openssl-dev \
+        libelf-dev \
+        libdw-dev \
+        binutils-dev \
+        libiberty-dev \
+        libssl-dev \
+        && rm -rf /var/lib/apt/lists/*
+
+    # Install Rust and Cargo
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    export PATH="$HOME/.cargo/bin:$PATH"
+
+    # Verify installation
+    cargo --version
+    rustc --version
+    git --version
+
